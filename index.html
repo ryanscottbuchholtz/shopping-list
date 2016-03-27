@@ -13,11 +13,6 @@
   <header class="header-wrapper">
     <nav class="main-navigation">
       <h1 class="logo">Go Shopping!</h1>
-<!--       <ul class="nav-list">
-        <a href="#"><li>Profile</li></a>
-        <a href="#"><li>Help</li></a>
-        <a href="#"><li>Log In</li></a>
-      </ul> -->
     </nav>
   </header>
   <div class="content-columns">
@@ -29,18 +24,28 @@
     </div>
     <div class="right-column column">
       <div class="list">
-        <p class="buy-save-nav">Bought</p>
+        <div class='list-headlines'>
+          <h2 id="shop-head">Shopping List</h2>
+          <h2 id="delete-head">Deleted Items</h2>
+          <h2 id="save-head">Saved Items</h2>
+          <h2 id="bought-head">Purchased Items</h2>
+        </div>
         <div class="list-contents">
           <ul id="shopping-list">
-            <li>
-            </li>
+          </ul>
+          <ul id="deleted-shopping-list">
+          </ul>
+          <ul id="saved-shopping-list">
+          </ul>
+          <ul id="complete-shopping-list">
           </ul>
         </div>
         <div class="list-nav-wrap">
           <ul class="list-nav">
-            <a href="#" title="Deleted"><li class="deleted button"><i class="fa fa-trash fa-2x"></i></li></a>
-            <a href="#" title="Saved"><li class="delayed button"><i class="fa fa-clock-o fa-2x"></i></li></a>
-            <a href="#" title="Completed"><li class="complete button"><i class="fa fa-list fa-2x"></i></li></a>
+            <a href="#" title="Home"><li class="Home button" id="home"><i class="fa fa-home fa-2x"></i></li></a>
+            <a href="#" title="Deleted"><li class="deleted button" id="deleted"><i class="fa fa-trash fa-2x"></i></li></a>
+            <a href="#" title="Saved"><li class="delayed button" id="delayed"><i class="fa fa-clock-o fa-2x"></i></li></a>
+            <a href="#" title="Completed"><li class="complete button" id="complete"><i class="fa fa-list fa-2x"></i></li></a>
           </ul>
         </div>
       </div>

@@ -169,7 +169,8 @@ input[type="checkbox"] {
   bottom: 50px;
 }
 
-.list-contents {
+.list-contents,
+.deleted-grocery-list {
   width: 85%;
   margin: 1vh auto;
   font-size: 1rem;
@@ -178,10 +179,26 @@ input[type="checkbox"] {
   display: flex;
 }
 
-.buy-save-nav {
-  font-size: .5rem;
-  margin-left: 6%;
-  text-align: left;
+#deleted-shopping-list {
+  display: none;
+}
+
+#saved-shopping-list {
+  display: none;
+}
+
+#complete-shopping-list {
+  display: none;
+}
+
+.list-headlines {
+  text-align: center;
+}
+
+#delete-head,
+#save-head,
+#bought-head {
+  display: none;
 }
 
 .edit,
