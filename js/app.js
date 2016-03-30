@@ -8,9 +8,6 @@ var deletedShoppingListButton = document.getElementById('deleted');
 var savedShoppingListButton = document.getElementById('delayed');
 var completedShoppingListButton = document.getElementById('complete');
 var addButton = document.getElementById('submit-button');
-// var deletedShoppingListButton = document.getElementById('deleted');
-// var savedShoppingListButton = document.getElementById('delayed');
-// var completedShoppingListButton = document.getElementById('complete');
 
 // Lists
 var allLists = document.getElementsByClassName('shop-list');
@@ -30,12 +27,14 @@ var completedItemsHeader = document.getElementById('bought-head');
 
 var createNewShoppingListItem = function(newItemUserInput) {
   var listItem = document.createElement("li");
-  var checkBox = document.createElement("input");
+      checkBox = document.createElement("input");
   var userInput = document.createElement("label");
   var buttonDiv = document.createElement('div');
-  var delButton = document.createElement('button');
+      homeButton = document.createElement('button');
+  var faIconHome = document.createElement('i');
+      delButton = document.createElement('button');
   var faIconDelete = document.createElement('i');
-  var saveButton = document.createElement('button');
+      saveButton = document.createElement('button');
   var faIconSave = document.createElement('i');
 
 
@@ -45,6 +44,11 @@ var createNewShoppingListItem = function(newItemUserInput) {
 
   userInput.innerText = newItemUserInput;
 
+  homeButton.className = "home-button";
+  faIconHome.title = "Home";
+  faIconHome.className = "fa fa-home";
+  homeButton.style.display = "none";
+
   delButton.className = "delete-button";
   faIconDelete.title = "Delete";
   faIconDelete.className = "fa fa-trash";
@@ -53,9 +57,11 @@ var createNewShoppingListItem = function(newItemUserInput) {
   faIconSave.title = "Save";
   faIconSave.className= "fa fa-clock-o";
 
+  homeButton.appendChild(faIconHome);
   delButton.appendChild(faIconDelete);
   saveButton.appendChild(faIconSave);
 
+  buttonDiv.appendChild(homeButton);
   buttonDiv.appendChild(delButton);
   buttonDiv.appendChild(saveButton);
 
@@ -110,14 +116,31 @@ var buttonCheckboxFunc = function(groceryListItem) {
   deleteButton.onclick = deleteGroceryItem;
   saveButton.onclick = saveGroceryItem;
   checkBox.onclick = completeGroceryItem;
+  homeButton.onclick = groceryItemHome;
 
 };
 
 
+var groceryItemHome = function () {
+  listItem = this.parentNode.parentNode;
+  parent = this.parentNode.parentNode.parentNode;
+  shoppingList.appendChild(listItem);
+  homeButton.style.display = "inline";
+  delButton.style.display = "inline";
+  saveButton.style.display = "inline";
+  checkBox.style.display = "inline";
+  checkBox.checked = false;
+  parent.removeChild(listItem);
+};
+
 var deleteGroceryItem = function () {
   listItem = this.parentNode.parentNode;
   parent = this.parentNode.parentNode.parentNode;
+  homeButton.style.display = "inline";
   deletedShoppingList.appendChild(listItem);
+  delButton.style.display = 'none';
+  checkBox.style.display = 'none';
+  saveButton.style.display = 'inline';
   // remove item from shopping list session storage
   // add item to deleted item session storage
   
@@ -127,6 +150,10 @@ var deleteGroceryItem = function () {
 var saveGroceryItem = function () {
   listItem = this.parentNode.parentNode;
   parent = this.parentNode.parentNode.parentNode;
+  homeButton.style.display = "inline";
+  delButton.style.display = "inline";
+  saveButton.style.display = "none";
+  checkBox.style.display = "none";
   savedShoppingList.appendChild(listItem);
   // remove item from current list session storage
   // add item to saved item session storage
@@ -137,6 +164,10 @@ var completeGroceryItem = function () {
   listItem = this.parentNode;
   parent = listItem.parentNode;
   completeShoppingList.appendChild(listItem);
+  checkBox.style.display = "none";
+  homeButton.style.display = "inline";
+  delButton.style.display = "inline";
+  saveButton.style.display = "inline";
   // remove item from current list session storage
   // add item to complete item session storage
   parent.removeChild(listItem);
@@ -165,7 +196,6 @@ function showThisListAndHeader(listToShow, headerToShow) {
   var showHead = headerToShow;
 
     for (i = 0; i < allLists.length; i++) {
-      console.log(allLists[i]);
       allLists[i].style.display = "none";
     }
 

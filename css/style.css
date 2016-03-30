@@ -147,7 +147,8 @@ input[type="checkbox"] {
 }
 
 .save-button,
-.delete-button {
+.delete-button,
+.home-button {
   padding: 0 20px;
   border: none;
   background-color: transparent;
