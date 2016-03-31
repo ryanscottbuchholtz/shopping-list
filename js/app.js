@@ -100,11 +100,11 @@ var addItem = function () {
 
 addButton.addEventListener("click", addItem);
 
-newItem.onkeyup = function(){
-    if(window.event.keyCode === 13){    //remove return keycode and write different code to accept return/submit
-        addItem();
-    }
-};
+// newItem.onkeyup = function(){
+//     if(window.event.keyCode === 13){    //remove return keycode and write different code to accept return/submit
+//         addItem();
+//     }
+// };
 
 // Buttons and Checkbox
 
