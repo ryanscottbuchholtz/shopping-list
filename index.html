@@ -18,7 +18,7 @@
   <div class="content-columns">
     <div class="left-column column">
       <div class="input">
-        <form>
+        <form id ="" onSubmit = 'addItem(); return false'>  <!-- calls function, return false stops form default action -->
           <input id="new_item" type="text" name="new_item" placeholder="New List Item" />
           <input id="submit-button" type="submit" value="Add" />
         </form>
